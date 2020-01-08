@@ -1,15 +1,13 @@
 <template>
-  <div class="ticket">
-  </div>
+  <div></div>
 </template>
 
 <script>
-
 export default {
-  name: 'home',
+
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

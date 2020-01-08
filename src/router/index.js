@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Ticket from '../views/Ticket.vue'
+import GetTicket from '../views/GetTicket.vue'
+import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'ticket',
-    component: Ticket
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/get-ticket',
+    name: 'get-ticket',
+    component: GetTicket
   },
 ]
 
