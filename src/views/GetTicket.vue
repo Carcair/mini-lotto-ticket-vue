@@ -1,11 +1,27 @@
 <template>
   <div class="get-ticket">
     <div class="choice">
-      <ball-btn v-for="number in allNumbers" v-bind:key="number" v-bind:num="number">{{number}}</ball-btn>
+      <ball-btn 
+        v-for="number in allNumbers"
+        v-bind:key="number"
+        v-bind:num="number"
+        v-bind:isChosen="check(number)"
+        v-bind:action="'add'"
+      >
+        {{number}}
+      </ball-btn>
     </div>
 
     <div class="ticket">
-      <ball-btn v-for="number in tempTicket" v-bind:key="number">{{number}}</ball-btn>
+      <ball-btn 
+        v-for="number in tempTicket"
+        v-bind:key="number"
+        v-bind:num="number"
+        v-bind:isChosen="true"
+        v-bind:action="'remove'"
+      >
+        {{number}}
+      </ball-btn>
     </div>
     
     <div class="ticketStatus">
@@ -41,6 +57,14 @@ export default {
       this.allNumbers.push(i);
     }
   },
+  methods: {
+    check(val) {
+      if(this.tempTicket.includes(val))
+        return true;
+      else
+        return false;
+    }
+  }
 }
 </script>
 
@@ -61,14 +85,16 @@ export default {
   .ticket {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
-    justify-content: space-evenly;
+    justify-content: center;
     align-content: center;
+    grid-gap: 5vh;
   }
 
   .ticketStatus {
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: space-evenly;
+    justify-content: center;
     align-content: center;
+    grid-gap: 5vh;
   }
 </style>
